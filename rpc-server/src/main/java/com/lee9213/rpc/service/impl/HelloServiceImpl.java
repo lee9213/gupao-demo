@@ -1,6 +1,6 @@
 package com.lee9213.rpc.service.impl;
 
-import com.lee9213.service.IHelloService;
+import com.lee9213.rpc.service.IHelloService;
 
 /**
  * @author lee9213@163.com

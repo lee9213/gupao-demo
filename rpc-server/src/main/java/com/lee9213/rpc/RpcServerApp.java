@@ -1,8 +1,8 @@
-package com.lee9213;
+package com.lee9213.rpc;
 
 import com.lee9213.rpc.server.RpcServer;
 import com.lee9213.rpc.service.impl.HelloServiceImpl;
-import com.lee9213.service.IHelloService;
+import com.lee9213.rpc.service.IHelloService;
 
 /**
  * Hello world!

@@ -1,7 +1,6 @@
-package com.lee9213;
+package com.lee9213.rpc.client;
 
-import com.lee9213.rpc.client.RpcClientProxy;
-import com.lee9213.service.IHelloService;
+import com.lee9213.rpc.service.IHelloService;
 
 /**
  * Hello world!

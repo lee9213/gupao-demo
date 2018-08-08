@@ -1,4 +1,4 @@
-package com.lee9213.service;
+package com.lee9213.rpc.service;
 
 /**
  * @author lee9213@163.com
