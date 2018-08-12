@@ -2,6 +2,7 @@ package com.lee9213.zookeeper;
 
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
+import org.junit.After;
 import org.junit.Before;
 
 import java.io.IOException;
@@ -38,5 +39,14 @@ public class ZkTestParent {
             e.printStackTrace();
         }
         System.out.println(zooKeeper.getState());
+    }
+
+    @After
+    public void after(){
+        try {
+            zooKeeper.close();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

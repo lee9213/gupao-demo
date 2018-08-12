@@ -63,14 +63,6 @@ public class ZKAuthDemo extends ZkTestParent{
             e.printStackTrace();
         } catch (KeeperException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (zooKeeper != null) {
-                    zooKeeper.close();
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 
