@@ -21,7 +21,7 @@ public class ZookeeperDemo {
         final CountDownLatch countDownLatch = new CountDownLatch(1);
         ZooKeeper zooKeeper = null;
         try {
-            zooKeeper = new ZooKeeper("192.168.1.18:2181,192.168.1.18:2182,192.168.1.18:2183", 1000, watchedEvent -> {
+            zooKeeper = new ZooKeeper("192.168.0.18:2181,192.168.0.18:2182,192.168.0.18:2183", 1000, watchedEvent -> {
                 System.out.printf("Global Watcher, EventType: %s, Path: %s", watchedEvent.getType(), watchedEvent.getPath());
                 System.out.println();
                 if (watchedEvent.getState() == Watcher.Event.KeeperState.SyncConnected) {
