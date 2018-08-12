@@ -130,11 +130,7 @@ public class ZkLockDemo implements Lock, Watcher {
             }, "Thread" + i).start();
             countDownLatch.countDown();
         }
-        try {
-            System.in.read();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
     }
 }
