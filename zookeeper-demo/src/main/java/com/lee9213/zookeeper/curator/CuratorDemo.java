@@ -123,4 +123,13 @@ public class CuratorDemo {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void delete(){
+        try {
+            framework.delete().deletingChildrenIfNeeded().forPath("/locks");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
