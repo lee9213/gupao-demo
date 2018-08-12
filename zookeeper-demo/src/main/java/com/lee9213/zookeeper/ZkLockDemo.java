@@ -117,20 +117,11 @@ public class ZkLockDemo implements Lock, Watcher {
     }
 
     public static void main(String[] args) {
-        CountDownLatch countDownLatch = new CountDownLatch(10);
         for (int i = 0; i < 10; i++) {
             new Thread(() -> {
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 ZkLockDemo zkLockDemo = new ZkLockDemo();
                 zkLockDemo.lock();
             }, "Thread" + i).start();
-            countDownLatch.countDown();
         }
-
-
     }
 }
