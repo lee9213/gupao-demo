@@ -43,7 +43,6 @@ public class ZkLockDemo implements Lock, Watcher {
             TreeSet<String> treeSet = new TreeSet<>();
             children.forEach(lock -> treeSet.add(ROOT_LOCK + "/" + lock));
             String lock = treeSet.first();
-
             if (CURRENT_LOCK.equals(lock)) {
                 return true;
             }
@@ -63,7 +62,6 @@ public class ZkLockDemo implements Lock, Watcher {
     public void process(WatchedEvent event) {
         if (countDownLatch != null) {
             countDownLatch.countDown();
-            System.out.println(Thread.currentThread().getName() + "获取锁成功" + CURRENT_LOCK);
         }
     }
 
@@ -78,6 +76,7 @@ public class ZkLockDemo implements Lock, Watcher {
                     System.out.println(Thread.currentThread().getName() + "等待锁" + WAIT_LOCK + "释放");
                     countDownLatch = new CountDownLatch(1);
                     countDownLatch.await();
+                    System.out.println(Thread.currentThread().getName() + "获取锁成功" + CURRENT_LOCK);
                 }
             } catch (KeeperException e) {
                 e.printStackTrace();
