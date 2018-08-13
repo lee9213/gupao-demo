@@ -12,6 +12,7 @@
         <module>rpc-demo</module>
         <module>zookeeper-demo</module>
         <module>rpc-discovery</module>
+        <module>dubbo-demo</module>
     </modules>
 
     <properties>
