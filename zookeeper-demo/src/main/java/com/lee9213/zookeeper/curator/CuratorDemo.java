@@ -3,6 +3,7 @@ package com.lee9213.zookeeper.curator;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.recipes.cache.*;
+import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
@@ -54,11 +55,7 @@ public class CuratorDemo {
             bytes = framework.getData().storingStatIn(stat).forPath("/curator/node1");
             System.out.println("getData2 : " + new String(bytes));
 
-
-            Thread.sleep(3000);
-
             framework.delete().deletingChildrenIfNeeded().forPath("/curator/node1");
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -74,7 +71,6 @@ public class CuratorDemo {
             framework.setData().forPath("/curator/node1","1test11".getBytes());
 
             framework.delete().deletingChildrenIfNeeded().forPath("/curator/node1");
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -131,5 +127,13 @@ public class CuratorDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void lock() throws Exception {
+        InterProcessMutex interProcessMutex = new InterProcessMutex(framework,"/locks");
+        interProcessMutex.acquire();
+        System.out.println(1);
+        interProcessMutex.release();
     }
 }

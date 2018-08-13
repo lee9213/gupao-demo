@@ -81,16 +81,7 @@ public class ZookeeperDemo {
 
             stat = zooKeeper.setData(path, "test2".getBytes(), stat.getVersion());
 
-
-
             zooKeeper.delete(path, stat.getVersion());
-
-
-
-
-//            zooKeeper.multi();
-//            zooKeeper.sync();
-//            zooKeeper.transaction();
 
         } catch (IOException e) {
             e.printStackTrace();

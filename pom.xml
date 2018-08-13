@@ -11,6 +11,7 @@
     <modules>
         <module>rpc-demo</module>
         <module>zookeeper-demo</module>
+        <module>rpc-discovery</module>
     </modules>
 
     <properties>
