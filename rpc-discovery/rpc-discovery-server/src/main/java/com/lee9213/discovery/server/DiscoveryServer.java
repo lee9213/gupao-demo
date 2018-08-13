@@ -4,7 +4,6 @@ import com.google.common.collect.Queues;
 import com.lee9213.discovery.server.rpc.ProcessHandler;
 import com.lee9213.discovery.server.zk.IRegistry;
 import com.lee9213.discovery.server.zk.ZkRegistry;
-import com.lee9213.service.IHelloService;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -22,10 +21,12 @@ public class DiscoveryServer {
 
     private static ExecutorService executorService = new ThreadPoolExecutor(2, 16, 60, TimeUnit.SECONDS, Queues.newLinkedBlockingQueue());
 
-    public void register(IHelloService helloService, String address) {
+    public void register(String address, Object... services) {
 
         IRegistry zkRegistry = new ZkRegistry();
-        zkRegistry.registry(helloService, address);
+        for(Object service : services){
+            zkRegistry.registry(service, address);
+        }
 
         try (ServerSocket serverSocket = new ServerSocket(Integer.parseInt(address.split(":")[1]))) {
             while (true) {

@@ -7,6 +7,8 @@ import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 
+import java.util.List;
+
 /**
  * @author lee9213@163.com
  * @version 1.0
@@ -15,6 +17,7 @@ import org.apache.zookeeper.data.Stat;
 public final class ZkClient {
 
     private CuratorFramework FRAMEWORK;
+
     private ZkClient() {
         FRAMEWORK = CuratorFrameworkFactory.builder()
                 .connectString(Constant.ZK_ADDRESS)
@@ -46,6 +49,16 @@ public final class ZkClient {
     public String create(String path) {
         try {
             return FRAMEWORK.create().creatingParentContainersIfNeeded().withMode(CreateMode.EPHEMERAL).forPath(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+    public List<String> getChildren(String path) {
+        try {
+            return FRAMEWORK.getChildren().forPath(path);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

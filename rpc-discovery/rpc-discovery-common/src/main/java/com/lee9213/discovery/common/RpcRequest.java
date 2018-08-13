@@ -1,12 +1,15 @@
 package com.lee9213.discovery.common;
 
+import java.io.Serializable;
+
 /**
  * @author lee9213@163.com
  * @version 1.0
  * @date 2018-08-13 0:58
  */
-public class RpcRequest {
+public class RpcRequest implements Serializable {
 
+    private static final long serialVersionUID = 9109962937401141979L;
     private String className;
     private String methodName;
     private Object[] parameters;

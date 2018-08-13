@@ -18,14 +18,18 @@ public class ServerTest {
     public void test1() {
 
         IHelloService helloService = new HelloServiceImpl();
+        IHelloService helloService2 = new HelloServiceImpl2();
+
         DiscoveryServer discovery = new DiscoveryServer();
-        discovery.register(helloService, "127.0.0.1:8080");
+        discovery.register("127.0.0.1:8080", helloService, helloService2);
     }
 
     @Test
     public void test2() {
-        IHelloService helloService = new HelloServiceImpl2();
+        IHelloService helloService = new HelloServiceImpl();
+        IHelloService helloService2 = new HelloServiceImpl2();
+
         DiscoveryServer discovery = new DiscoveryServer();
-        discovery.register(helloService, "127.0.0.1:8081");
+        discovery.register("127.0.0.1:8081", helloService, helloService2);
     }
 }
