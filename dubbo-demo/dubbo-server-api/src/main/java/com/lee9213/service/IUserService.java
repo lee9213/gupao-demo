@@ -1,0 +1,12 @@
+package com.lee9213.service;
+
+/**
+ * @author lee9213@163.com
+ * @version 1.0
+ * @date 2018-08-14 20:39
+ */
+public interface IUserService {
+
+
+    String hello(String message);
+}
