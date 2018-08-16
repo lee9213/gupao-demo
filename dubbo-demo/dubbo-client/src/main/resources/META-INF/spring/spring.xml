@@ -11,5 +11,5 @@
 
     <dubbo:reference id="userService"  interface="com.lee9213.service.IUserService" version="1.0"></dubbo:reference>
 
-    <dubbo:reference id="helloService" interface="com.lee9213.service.IHelloService" version="1.1"></dubbo:reference>
+    <dubbo:reference id="helloService" interface="com.lee9213.service.IHelloService" version="1.0"></dubbo:reference>
 </beans>
