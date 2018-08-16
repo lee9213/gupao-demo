@@ -16,7 +16,7 @@
         <!--filter="" listener="" protocol="" layer="" register=""></dubbo:service>-->
 
     <dubbo:service interface="com.lee9213.service.IHelloService" ref="helloService"
-                   version="1.0">
+                   version="1.0" cluster="forking">
     </dubbo:service>
 
 

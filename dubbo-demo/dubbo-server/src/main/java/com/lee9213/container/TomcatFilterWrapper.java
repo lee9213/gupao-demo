@@ -1,0 +1,27 @@
+package com.lee9213.container;
+
+import com.alibaba.dubbo.container.Container;
+
+/**
+ * @author lee9213@163.com
+ * @version 1.0
+ * @date 2018-08-16 10:44
+ */
+public class TomcatFilterWrapper implements Container {
+
+    private Container container;
+
+    public TomcatFilterWrapper(Container container) {
+        this.container = container;
+    }
+
+    @Override
+    public void start() {
+
+    }
+
+    @Override
+    public void stop() {
+
+    }
+}
