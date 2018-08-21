@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="dubbo-server" owner="lee9213"></dubbo:application>
-    <dubbo:registry address="zookeeper://192.168.0.18:2181"></dubbo:registry>
+    <dubbo:registry id="zk1"  address="zookeeper://192.168.0.18:2181" check="false"></dubbo:registry>
+    <!--<dubbo:registry id="zk2" address="zookeeper://192.168.0.18:2182" check="false"></dubbo:registry>-->
+
 
     <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
 
@@ -16,8 +19,13 @@
         <!--filter="" listener="" protocol="" layer="" register=""></dubbo:service>-->
 
     <dubbo:service interface="com.lee9213.service.IHelloService" ref="helloService"
-                   version="1.0" cluster="forking">
+                   version="1.0"  registry="zk1" >
     </dubbo:service>
+
+    <!--<dubbo:service interface="com.lee9213.service.IHelloService" ref="helloService"-->
+                   <!--version="1.0"  registry="zk2"  loadbalance="random">-->
+    <!--</dubbo:service>-->
+
 
 
     <!--<dubbo:service interface="com.lee9213.service.IUserService" ref="userService" ></dubbo:service>-->
