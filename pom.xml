@@ -17,6 +17,7 @@
         <module>zookeeper-demo</module>
         <module>rpc-discovery</module>
         <module>dubbo-demo</module>
+        <module>mq-demo</module>
     </modules>
 
     <properties>
