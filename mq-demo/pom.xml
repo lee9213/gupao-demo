@@ -17,6 +17,7 @@
     <url>http://www.example.com</url>
     <modules>
         <module>activemq-demo</module>
+        <module>kafka-demo</module>
     </modules>
 
     <properties>
