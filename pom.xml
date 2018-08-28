@@ -18,6 +18,8 @@
         <module>rpc-discovery</module>
         <module>dubbo-demo</module>
         <module>mq-demo</module>
+        <module>juc-demo</module>
+        <module>jvm-demo</module>
     </modules>
 
     <properties>
